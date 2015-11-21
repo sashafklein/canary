@@ -37,8 +37,11 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     arel (6.0.3)
+    bcrypt (3.1.10)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+    bootstrap-generators (3.3.4)
+      railties (>= 3.1.0)
     builder (3.2.2)
     byebug (6.0.2)
     coffee-rails (4.1.0)
@@ -49,10 +52,35 @@ GEM
       execjs
     coffee-script-source (1.9.1.1)
     debug_inspector (0.0.2)
+    devise (3.5.2)
+      bcrypt (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 3.2.6, < 5)
+      responders
+      thread_safe (~> 0.1)
+      warden (~> 1.2.3)
+    devise-bootstrap-views (0.0.6)
     erubis (2.7.0)
     execjs (2.6.0)
+    falcon-deploy (0.1.2)
+      trollop (= 2.1.2)
+    figaro (1.1.1)
+      thor (~> 0.14)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
+    haml (4.0.7)
+      tilt
+    haml-rails (0.9.0)
+      actionpack (>= 4.0.1)
+      activesupport (>= 4.0.1)
+      haml (>= 4.0.6, < 5.0)
+      html2haml (>= 1.0.1)
+      railties (>= 4.0.1)
+    html2haml (2.0.0)
+      erubis (~> 2.7.0)
+      haml (~> 4.0.0)
+      nokogiri (~> 1.6.0)
+      ruby_parser (~> 3.5)
     i18n (0.7.0)
     jbuilder (2.3.1)
       activesupport (>= 3.0.0, < 5)
@@ -62,6 +90,7 @@ GEM
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
     json (1.8.3)
+    kgio (2.9.3)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.3)
@@ -72,7 +101,10 @@ GEM
     multi_json (1.11.2)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
+    orm_adapter (0.5.0)
     pg (0.18.3)
+    pgclone (0.1.1)
+      trollop (= 2.1.2)
     rack (1.6.4)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -95,13 +127,23 @@ GEM
       rails-deprecated_sanitizer (>= 1.0.1)
     rails-html-sanitizer (1.0.2)
       loofah (~> 2.0)
+    rails_12factor (0.0.3)
+      rails_serve_static_assets
+      rails_stdout_logging
+    rails_serve_static_assets (0.0.4)
+    rails_stdout_logging (0.0.3)
     railties (4.2.4)
       actionpack (= 4.2.4)
       activesupport (= 4.2.4)
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
+    raindrops (0.13.0)
     rake (10.4.2)
     rdoc (4.2.0)
+    responders (2.1.0)
+      railties (>= 4.2.0, < 5)
+    ruby_parser (3.7.2)
+      sexp_processor (~> 4.1)
     sass (3.4.18)
     sass-rails (5.0.4)
       railties (>= 4.0.0, < 5.0)
@@ -112,6 +154,7 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
+    sexp_processor (4.6.0)
     spring (1.4.0)
     sprockets (3.3.4)
       rack (~> 1.0)
@@ -122,6 +165,7 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (2.0.1)
+    trollop (2.1.2)
     turbolinks (2.5.3)
       coffee-rails
     tzinfo (1.2.2)
@@ -129,6 +173,12 @@ GEM
     uglifier (2.7.2)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    unicorn (4.9.0)
+      kgio (~> 2.6)
+      rack
+      raindrops (~> 0.7)
+    warden (1.2.3)
+      rack (>= 1.0)
     web-console (2.2.1)
       activemodel (>= 4.0)
       binding_of_caller (>= 0.7.2)
@@ -139,15 +189,24 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bootstrap-generators
   byebug
   coffee-rails (~> 4.1.0)
+  devise
+  devise-bootstrap-views
+  falcon-deploy
+  figaro
+  haml-rails
   jbuilder (~> 2.0)
   jquery-rails
   pg
+  pgclone
   rails (= 4.2.4)
+  rails_12factor
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   spring
   turbolinks
   uglifier (>= 1.3.0)
+  unicorn
   web-console (~> 2.0)
