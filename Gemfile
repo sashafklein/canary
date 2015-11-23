@@ -17,7 +17,6 @@ gem 'rails_12factor'
 
 gem 'bootstrap-generators'
 gem 'haml-rails'
-gem 'devise'
 gem 'figaro'
 gem 'devise-bootstrap-views'
 
