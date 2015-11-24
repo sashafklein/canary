@@ -20,14 +20,20 @@ gem 'haml-rails'
 gem 'figaro'
 gem 'devise-bootstrap-views'
 
+gem 'omniauth'
+gem 'omniauth-twitter'
+gem 'twitter'
+
 group :development, :test do
   gem 'byebug'
 end
 
 group :development do
-  gem 'web-console', '~> 2.0'
-  gem 'spring'
+  # gem 'web-console', '~> 2.0'
+  # gem 'spring'
   gem 'falcon-deploy'
   gem 'pgclone'
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
