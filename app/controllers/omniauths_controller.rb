@@ -24,18 +24,6 @@ class OmniauthsController < ApplicationController
     end
   end
 
-  def consumer
-    auth.extra.access_token.consumer
-  end
-
-  def info
-    auth.extra.access_token.params
-  end
-
-  def info
-
-  end
-
   def auth
     @auth ||= request.env["omniauth.auth"]
   end

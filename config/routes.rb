@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root 'landings#show'
 
   resources :omniauths, only: [:destroy] do
-    get :back
+    get :back, on: :collection
   end
 
   resources :users, only: [:edit, :update]

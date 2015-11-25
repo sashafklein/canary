@@ -17,7 +17,7 @@
         .navbar-header= link_to "Canary", "/", class: "navbar-brand"
         #navbar.collapse.navbar-collapse
           %ul.nav.navbar-nav
-            %li.active= 'Home', '/'
+            %li.active= link_to 'Home', '/'
             - if current_user
               %li= link_to 'Sign Out', signout_path, method: :post
             - else

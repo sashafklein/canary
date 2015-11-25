@@ -26,6 +26,8 @@ gem 'twitter'
 
 group :development, :test do
   gem 'byebug'
+  gem 'rspec-rails'
+  gem 'pry'
 end
 
 group :development do
