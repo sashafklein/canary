@@ -33,6 +33,8 @@ def auth_data
     },
     extra: {
       access_token: OpenStruct.new({
+        token: auth_data_hash[:twitter_key],
+        secret: auth_data_hash[:twitter_secret],
         params: {
           user_id: auth_data_hash[:twitter_id],
           screen_name: auth_data_hash[:username],

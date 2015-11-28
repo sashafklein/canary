@@ -42,5 +42,5 @@ describe OmniauthsController do
 end
 
 def user_rules_path(user)
-  '/' #{}"/users/#{ user.id }/rules"
+  "/users/#{ user.id }/rules"
 end

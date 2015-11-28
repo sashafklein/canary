@@ -15,3 +15,10 @@
 //= require turbolinks
 //= require bootstrap
 //= require_tree .
+
+$( document ).ready( function() {
+  $('a.twitter').on( 'click' , function(e) {
+    $('#sign-in').hide();
+    $('#sign-in-spinner').removeClass('hidden');
+  })  
+})

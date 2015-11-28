@@ -1,12 +1,15 @@
-.center-form
-  .instruction-container
-    - if @user.email
-      %p Edit your email below:
-    - else
-      %p Please enter an email address to use Canary:
+.row.container
+  .center-form.centerify
+    .instruction-container
+      - if @user.email
+        %p Edit your email below:
+      - else
+        %p Please enter an email address to use Canary:
 
-  .form-container
-    = form_for @user do |f|
-      = f.label :email
-      = f.email_field :email
-      = f.submit 'Submit'
+    .form-container
+      = form_for @user do |f|
+        = f.label :email
+        = f.email_field :email
+        %br
+        .submit-button
+          = f.submit 'Submit', class: 'btn btn-primary submit'

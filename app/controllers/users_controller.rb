@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    if user_params[:email].present? && @user.update_attributes!(user_params)
+    if validish_email? && @user.update_attributes!(user_params)
       redirect_to user_rules_path(@user)
     else
       flash[:error] = "Please enter a valid email address."
@@ -21,5 +21,9 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:email)
+  end
+
+  def validish_email?
+    user_params[:email].present? && user_params[:email].include?('.') && user_params[:email].include?('@')
   end
 end
