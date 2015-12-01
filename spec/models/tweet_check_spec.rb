@@ -36,10 +36,9 @@ describe TweetCheck do
       TweetCheck.new(user: @user, created_at: 3.minutes.ago).save!
       tweet_hash = { text: 'Here is some findme text', created_at: 2.minutes.ago.to_s }
       expect( @user ).not_to receive(:notify_of_tweet!).with(tweet_hash, @term)
+      expect( Rollbar ).to receive(:error).with("A TweetCheck was performed in the last 5 minutes for user #{@user.username}!")
       
-      expect{
-        TweetCheck.new(user: @user).run!
-      }.to raise_error TweetCheck::PreexistingError
+      TweetCheck.new(user: @user).run!
     end
 
     it "ignores older tweets (doesn't notify, but creates a TweetCheck)" do

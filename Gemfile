@@ -23,6 +23,7 @@ gem 'devise-bootstrap-views'
 gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'twitter'
+gem 'rollbar'
 
 group :development, :test do
   gem 'byebug'

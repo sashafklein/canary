@@ -1,0 +1,5 @@
+.row
+  .container.centerify
+    = link_to "https://twitter.com/statuses/#{@tweet[:id]}" do
+      %b= "#{ @tweet[:user][:screen_name] }:  "
+      = @tweet[:text]

@@ -31,8 +31,7 @@ class User < ActiveRecord::Base
   end
 
   def notify_of_tweet!(tweet, term)
-    # Email
-    puts "FOUND ONE: #{tweet[:text]}, TERM: #{term}"
+    UserMailer.tweet_notification(self, tweet, term).deliver_now
   end
 
   private
