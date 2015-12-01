@@ -1,0 +1,13 @@
+.row
+  .container.centerify
+    = form_tag "/users/#{@user.id}/rules", class: 'form' do
+      .input-group
+        = label_tag :twitter_user
+        %select{ name: :twitter_user, id: :twitter_user }
+          - @user.following_on_twitter.each_with_index do |option, index|
+            %option{ value: option.to_s }= option[:twitter_user_name]
+      .input-group
+        = label_tag :term
+        = text_field_tag :term
+      .input-group
+        = submit_tag

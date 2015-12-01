@@ -11,10 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151124185306) do
+ActiveRecord::Schema.define(version: 20151128204124) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "rules", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "term"
+    t.string   "twitter_user_id"
+    t.string   "twitter_user_image"
+    t.string   "twitter_user_name"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
+  add_index "rules", ["user_id"], name: "index_rules_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "twitter_key"

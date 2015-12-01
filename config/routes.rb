@@ -6,8 +6,10 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:edit, :update] do
-    resources :rules
+    resources :rules, except: [:destroy, :edit, :update]
   end
+
+  resources :rules, only: [:destroy]
   
   get '/auth/:provider/callback', to: 'omniauths#back'
   get '/auth/failure', to: redirect('/')

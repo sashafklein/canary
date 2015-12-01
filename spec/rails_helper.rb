@@ -55,3 +55,14 @@ RSpec.configure do |config|
   ActionController::Base.logger.level = Logger::ERROR
   Rails.logger.level = Logger::ERROR
 end
+
+def new_user(iterator=1)
+  User.new({
+    username: "username#{ iterator }",
+    image: "image#{ iterator }.jpg",
+    email: "email#{ iterator }@fake.com",
+    twitter_id: "12345-#{ iterator }",
+    twitter_key: "tk1234-#{ iterator }",
+    twitter_secret: "ts1234-#{ iterator }"
+  })
+end

@@ -1,0 +1,24 @@
+.row
+  .container.centerify
+    %table.table
+      %thead
+        %tr
+          %th Term
+          %th Twitter User
+          %th 
+      %tbody
+        - @user.rules.each do |rule|
+          %tr
+            %td= rule.term
+            %td
+              - if rule.twitter_user_image.present?
+                = image_tag rule.twitter_user_image
+              = rule.twitter_user_name
+            %td
+              = link_to rule, method: :delete do
+                %i.fa.fa-trash
+        %tr
+          %td{ colspan: 4 }
+            = link_to new_user_rule_path(@user) do
+              Add New
+              %i.fa.fa-plus-circle
