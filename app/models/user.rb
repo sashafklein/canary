@@ -30,6 +30,11 @@ class User < ActiveRecord::Base
     []
   end
 
+  def notify_of_tweet!(tweet, term)
+    # Email
+    puts "FOUND ONE: #{tweet[:text]}, TERM: #{term}"
+  end
+
   private
 
   def twitter_user_attrs(u)

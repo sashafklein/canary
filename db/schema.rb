@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151128204124) do
+ActiveRecord::Schema.define(version: 20151201204723) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,14 @@ ActiveRecord::Schema.define(version: 20151128204124) do
 
   add_index "rules", ["user_id"], name: "index_rules_on_user_id", using: :btree
 
+  create_table "tweet_checks", force: :cascade do |t|
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "tweet_checks", ["user_id"], name: "index_tweet_checks_on_user_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "twitter_key"
     t.string   "twitter_secret"
@@ -39,4 +47,5 @@ ActiveRecord::Schema.define(version: 20151128204124) do
     t.datetime "updated_at",     null: false
   end
 
+  add_foreign_key "tweet_checks", "users"
 end

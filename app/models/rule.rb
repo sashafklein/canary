@@ -13,4 +13,15 @@ class Rule < ActiveRecord::Base
 
     preexisting.create!( tu.slice(:twitter_user_name, :twitter_user_image).merge({ term: term }) )
   end
+
+  def notify_if_found!(tweets, this_check_time, previous_check_time)
+    matching = tweets.select do |tweet| 
+      (previous_check_time..this_check_time).cover?( tweet[:created_at].to_datetime ) && 
+        tweet[:text].include?( term )
+    end
+
+    matching.each do |tweet|
+      user.notify_of_tweet!( tweet, term )
+    end
+  end
 end
