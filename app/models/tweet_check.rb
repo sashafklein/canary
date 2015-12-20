@@ -1,6 +1,8 @@
 class TweetCheck < ActiveRecord::Base
   belongs_to :user
   
+  after_save { puts "TweetCheck performed for #{user.email}: #{self.created_at}" }
+  
   attr_accessor :now, :tweets, :twitter_client
   after_initialize do
     self.now = Time.now
